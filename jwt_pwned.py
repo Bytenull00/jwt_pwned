@@ -3,7 +3,7 @@
 # jwt_pwned version 1.0.0 (06_10_2021)
 # Written by Gustavo Segundo (@Bytenull%00)
 # Please use responsibly...
-# Software URL: https://github.com/X
+# Software URL: https://github.com/Bytenull00/jwt_pwned/blob/main/jwt_pwned.py
 # Contact: gasso2do@gmail.com
 
 from colorama import init, Fore, Back, Style
