@@ -15,6 +15,7 @@ Installing
 ```
 git clone https://github.com/Bytenull00/jwt_pwned.git
 cd jwt_pwned
+pip3 install -r requirements.txt
 python3 jwt_pwned --help
 ```
 
