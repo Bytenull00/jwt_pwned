@@ -114,7 +114,7 @@ optional arguments:
  An attacker can change the jku parameter value to point to their own JWK instead of the valid one. If accepted, this allows the attacker to sign malicious tokens using their own private key. After the malicious token is sent, the application will fetch the attacker’s JWK and use it to verify the signature.
  
 ```
-python3 jwt_pwned.py kid -t (JWT) -i (PAYLOAD)
+python3 jwt_pwned.py jku -t (JWT) -i (PAYLOAD)
 ``` 
 
 ```
@@ -131,7 +131,9 @@ optional arguments:
 
 ![img1](https://user-images.githubusercontent.com/19710178/136139507-059956a0-7485-4d92-870c-75db2b9b0336.png)
 ![img2](https://user-images.githubusercontent.com/19710178/136139775-e2fc8a80-d5a9-4d41-b3a7-f06c9363bd88.png)
+![konfusion](https://user-images.githubusercontent.com/19710178/139336365-3c01332c-3907-4db3-a3da-c76f4b4c2926.png)
 ![img3](https://user-images.githubusercontent.com/19710178/136139785-c94feb4f-fbb4-426b-81a5-bccc3f532c64.png)
+![jku](https://user-images.githubusercontent.com/19710178/139336374-fcccf31a-b27f-46e5-b8a5-b25ead880e80.png)
 
 ### Credits 
 
