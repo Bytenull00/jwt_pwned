@@ -137,4 +137,4 @@ optional arguments:
 
 ### Credits 
 
-* Gustavo Segundo - ByteNull%00 
+* Gustavo Segundo - ByteNull%00 - gasso2do@gmail.com
